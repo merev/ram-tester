@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: memory-hog-pod
+  labels:
+    app: memory-test
+spec:
+  containers:
+  - name: memory-hog
+    image: ghcr.io/merev/ram-tester:latest
+    resources:
+      limits:
+        memory: "64Mi"
+      requests:
+        memory: "32Mi"
+  restartPolicy: OnFailure
